@@ -11,6 +11,8 @@ export default function Home(params: { searchParams: { param: SetStateAction<str
     const [query, setQuery] = useState("")
     const [imageModal, setImageModal] = useState<object |null>(null)
 
+
+    console.log(params)
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         setQuery(e.target.value)
         setPageNumber(1)
