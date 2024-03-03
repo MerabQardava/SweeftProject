@@ -14,7 +14,7 @@ export default function Home(params:any) {
 
     // const searchParams = useSearchParams()
 
-    const searchParams = new URLSearchParams(document.location.search);
+
     // console.log(searchParams.get("param"))
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         setQuery(e.target.value)
@@ -32,6 +32,7 @@ export default function Home(params:any) {
 
 
     useEffect(() => {
+        const searchParams = new URLSearchParams(document.location.search);
         if (searchParams.get("param")) {
             // console.log(searchParams.get("param"))
             // @ts-ignore
