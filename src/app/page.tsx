@@ -9,7 +9,7 @@ import ImageModal from "@/app/ImageModal";
 export default function Home(params: { searchParams: { param: SetStateAction<string>; }; }) {
     const [pageNumber, setPageNumber] = useState(1)
     const [query, setQuery] = useState("")
-    const [imageModal, setImageModal] = useState(null)
+    const [imageModal, setImageModal] = useState<object |null>(null)
 
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         setQuery(e.target.value)
@@ -20,7 +20,7 @@ export default function Home(params: { searchParams: { param: SetStateAction<str
         setImageModal(null)
     }
 
-    const modifyImageModal=(imageData)=>{
+    const modifyImageModal=(imageData:object)=>{
         setImageModal(imageData)
         // console.log(imageData)
     }

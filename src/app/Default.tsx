@@ -28,7 +28,7 @@ async function getTop20Photos() {
     }
 }
 
-function Default(props) {
+function Default(props:any) {
 
     // console.log(props)
     const [top20, setTop20] = useState<{ urls: { regular: string }, id: string,slug:string }[]>([])
