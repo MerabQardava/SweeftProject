@@ -4,15 +4,17 @@ import Default from "@/app/Default";
 import SearchComponent from "@/app/SearchComponent";
 import Link from "next/link";
 import ImageModal from "@/app/ImageModal";
+import {useSearchParams} from "next/navigation";
 
 
-export default function Home(params: { searchParams: { param: SetStateAction<string>; }; }) {
+export default function Home(params:any) {
     const [pageNumber, setPageNumber] = useState(1)
     const [query, setQuery] = useState("")
     const [imageModal, setImageModal] = useState<object |null>(null)
 
+    const searchParams = useSearchParams()
 
-    console.log(params)
+    // console.log(searchParams.get("param"))
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         setQuery(e.target.value)
         setPageNumber(1)
@@ -29,9 +31,10 @@ export default function Home(params: { searchParams: { param: SetStateAction<str
 
 
     useEffect(() => {
-        if (params.searchParams.param) {
-            console.log(params.searchParams.param)
-            setQuery(params.searchParams.param)
+        if (searchParams.get("param")) {
+            console.log(searchParams.get("param"))
+            // @ts-ignore
+            setQuery(searchParams.get("param"))
         }
         function handleScroll() {
             const {scrollTop, scrollHeight, clientHeight} = document.documentElement;
