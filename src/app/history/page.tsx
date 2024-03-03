@@ -11,8 +11,10 @@ function Page() {
     const [searchHistory, setSearchHistory] = useState<string[]>([])
 
     useEffect(() => {
-        const localstorageData: SearchCache = getLocalStorage("searchCache")
-        setSearchHistory(Object.keys(localstorageData));
+        const localstorageData: SearchCache | null = getLocalStorage("searchCache");
+        if (localstorageData) {
+            setSearchHistory(Object.keys(localstorageData));
+        }
     }, []);
 
     // console.log(searchHistory)
