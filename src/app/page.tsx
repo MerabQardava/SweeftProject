@@ -12,8 +12,9 @@ export default function Home(params:any) {
     const [query, setQuery] = useState("")
     const [imageModal, setImageModal] = useState<object |null>(null)
 
-    const searchParams = useSearchParams()
+    // const searchParams = useSearchParams()
 
+    const searchParams = new URLSearchParams(document.location.search);
     // console.log(searchParams.get("param"))
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         setQuery(e.target.value)
@@ -32,7 +33,7 @@ export default function Home(params:any) {
 
     useEffect(() => {
         if (searchParams.get("param")) {
-            console.log(searchParams.get("param"))
+            // console.log(searchParams.get("param"))
             // @ts-ignore
             setQuery(searchParams.get("param"))
         }
