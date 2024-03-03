@@ -14,6 +14,8 @@ function SearchComponent(props: searchCacheProps) {
     const [cache, setCache] = useState({})
     const [imagesArr, setImagesArr] = useState()
 
+    console.log(imagesArr)
+
     function combineArrays(arr, num) {
         const combinedArray = arr.slice(0, num).reduce((result, subArray) => {
             return result.concat(subArray);

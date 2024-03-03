@@ -2,7 +2,7 @@ export function setLocalStorage(key:string, value:any, expiryInDays:number) {
     const now = new Date();
     const item = {
         value: value,
-        expiry: now.getTime() + (expiryInDays * 24 * 60 * 60 * 1000) // Convert days to milliseconds
+        expiry: now.getTime() + (expiryInDays * 24 * 60 * 60 * 1000)
     };
     localStorage.setItem(key, JSON.stringify(item));
     window.dispatchEvent(new Event("storage"));
