@@ -1,7 +1,7 @@
 import React from 'react';
 
 function ImageModal(props:any) {
-    console.log(props)
+    // console.log(props)
 
     return (<section onClick={props.closeModal} className=" fixed w-[100%] h-[100%] bg-black bg-opacity-50">
 

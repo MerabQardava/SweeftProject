@@ -17,7 +17,7 @@ function SearchComponent(props: searchCacheProps) {
         [key: string]: ImageData[]; }>({})
     const [imagesArr, setImagesArr] = useState()
 
-    console.log(imagesArr)
+    // console.log(imagesArr)
 
     function combineArrays(arr:any[], num:number) {
         const combinedArray = arr.slice(0, num).reduce((result, subArray) => {

@@ -27,7 +27,6 @@ export default function Home(params: { searchParams: { param: SetStateAction<str
 
 
     useEffect(() => {
-
         if (params.searchParams.param) {
             console.log(params.searchParams.param)
             setQuery(params.searchParams.param)
