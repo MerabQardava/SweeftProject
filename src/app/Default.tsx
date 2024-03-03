@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {getLocalStorage, setLocalStorage} from "@/app/localstorageFunctions";
+import ImageListComponent from "@/app/ImageListComponent";
 
 async function getTop20Photos() {
+
     const accessKey: String = "DGciUO7cO78CxR9T9k7aVfjRf7p21h2HEapgnyUiAAo";
     try {
         const response = await fetch(`https://api.unsplash.com/photos?page=1&order_by=popular&per_page=20`, {
@@ -26,8 +28,10 @@ async function getTop20Photos() {
     }
 }
 
-function Default() {
-    const [top20, setTop20] = useState<{ urls: { regular: string }, id: string }[]>([])
+function Default(props) {
+
+    // console.log(props)
+    const [top20, setTop20] = useState<{ urls: { regular: string }, id: string,slug:string }[]>([])
 
     useEffect(() => {
         const fetchData = async () => {
@@ -47,12 +51,12 @@ function Default() {
 
 
     return (
-        <div className="flex flex-col justify-center items-center gap-5">
-            {top20?.map((item) => {
-                return <img className="w-3/5 border rounded-3xl" key={item.id} src={item.urls.regular}/>
-
-            })}
-        </div>
+        <ImageListComponent modifyImageModal={props.modifyImageModal} imgArr={top20}/>
+        // <div className="flex flex-col justify-center items-center gap-5">
+        //     {top20?.map((item) => {
+        //         return <img className="w-3/5 border rounded-3xl" key={item.id} src={item.urls.regular}/>
+        //     })}
+        // </div>
     );
 }
 

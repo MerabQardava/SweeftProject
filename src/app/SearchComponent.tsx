@@ -3,10 +3,12 @@
 import React, {useEffect, useState} from 'react';
 import useImageSearch from "@/app/useImageSearch";
 import {getLocalStorage} from "@/app/localstorageFunctions";
+import ImageListComponent from "@/app/ImageListComponent";
 
 type searchCacheProps = {
     query: string
     pageNumber: number
+    modifyImageModal:any
 }
 
 
@@ -53,8 +55,9 @@ function SearchComponent(props: searchCacheProps) {
     // @ts-ignore
     if (imagesArr) {
         return (
-            <div className="flex flex-col justify-center items-center gap-5">{imagesArr.map((item: any) => <img
-                className="w-3/5 border rounded-3xl" key={item.id} src={item.urls.regular}/>)}</div>
+            <ImageListComponent modifyImageModal={props.modifyImageModal} imgArr={imagesArr}/>
+            // <div className=" flex flex-col justify-center items-center gap-5">{imagesArr.map((item: any) => <img
+            //     className="w-3/5 border rounded-3xl" key={item.id} src={item.urls.regular}/>)}</div>
         );
     } else {
         return <div>sus</div>

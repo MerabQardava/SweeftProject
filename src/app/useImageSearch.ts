@@ -17,7 +17,7 @@ function useImageSearch(query: string, pageNumber: number) {
         async function fetchData() {
             const accessKey:String = "DGciUO7cO78CxR9T9k7aVfjRf7p21h2HEapgnyUiAAo";
             try {
-                const response = await fetch(`https://api.unsplash.com/search/photos?page=${pageNumber}&query=${query}&order_by=popular`, {
+                const response = await fetch(`https://api.unsplash.com/search/photos?page=${pageNumber}&query=${query}&stats=true&order_by=popular`, {
                     headers: {
                         Authorization: `Client-ID ${accessKey}`
                     },
