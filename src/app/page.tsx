@@ -59,7 +59,7 @@ export default function Home(params:any) {
             {imageModal&&<ImageModal closeModal={closeModal} imageData={imageModal}/>}
             <nav className="top-0 z-20 bg-neutral-200 fixed w-full p-2">
                 <input className="text-black px-2 text-2xl border-2 rounded-3xl border-gray-400" value={query} type="text" onChange={handleSearch}/>
-                <Link href={"/history"}>History</Link>
+                <Link className="ml-2 border-2 rounded-3xl border-gray-400 px-2 text-2xl" href={"/history"}>Show Search History</Link>
             </nav>
 
             {query == "" ? <Default modifyImageModal={modifyImageModal}/> : <SearchComponent modifyImageModal={modifyImageModal} query={query} pageNumber={pageNumber}/>}

@@ -20,10 +20,13 @@ function Page() {
     // console.log(searchHistory)
 
     return (<>
-            <Link href={"/"}>Back</Link>
+            <nav className="top-0 z-20 bg-neutral-200 fixed w-full p-2">
+                <Link className="ml-2 border-2 rounded-3xl border-gray-400 px-2 text-2xl" href={"/"}>{"<-Back"}</Link>
+            </nav>
+            <h1 className="mt-12 text-center font-bold text-4xl">Search History</h1>
             <div className="flex flex-col items-center">
                 {searchHistory?.map((item, index) => {
-                    return <Link key={index} href={`/?param=${item}`}>{item}</Link>
+                    return <Link className="border-2 border-black rounded-xl p-2 mb-2" key={index} href={`/?param=${item}`}>{item}</Link>
                 })}
             </div>
         </>

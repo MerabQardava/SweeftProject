@@ -11,9 +11,9 @@ function ImageListComponent(props: defaultImageData) {
 
 
     return (
-        <div className="flex mt-4 flex-col justify-center items-center gap-5">
+        <div className="flex mt-12 flex-col justify-center items-center gap-5">
             {props.imgArr?.map((item) => {
-                return <img onClick={() => props.modifyImageModal(item)} alt={item.slug} className="w-3/5 border rounded-3xl" key={item.id} src={item.urls.regular}/>
+                return <img onClick={() => props.modifyImageModal(item)} alt={item.slug} className="cursor-pointer w-3/5 border rounded-3xl" key={item.id} src={item.urls.regular}/>
             })}
         </div>
     );
